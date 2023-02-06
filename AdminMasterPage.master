@@ -1,0 +1,165 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="AdminMasterPage.master.cs" Inherits="Admin_AdminMasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MB - Admin</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <link rel="stylesheet" href="dashboard.css" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+                <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">Milk And Barries
+                </a>
+                <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="navbar-nav">
+                    <div class="nav-item text-nowrap">
+                        <asp:LinkButton ID="lbChangePassword" OnClick="lbChangePassword_Click" CssClass="nav-link px-3" runat="server">Change Password</asp:LinkButton>
+                    </div>
+                </div>
+
+                <div class="navbar-nav">
+                    <div class="nav-item text-nowrap">
+                        <asp:LinkButton ID="lbSignout" OnClick="lbSignout_Click" CssClass="nav-link px-3" runat="server">Sign out</asp:LinkButton>
+
+                    </div>
+                </div>
+            </header>
+
+            <div class="container-fluid">
+                <div class="row">
+                    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+                        <div class="position-sticky pt-3">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link " aria-current="page" href="Dashboard.aspx">
+                                        <span data-feather="home"></span>
+                                        Dashboard
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="Orders.aspx">
+                                        <span data-feather="file"></span>
+                                        Orders
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="FailedOrders.aspx">
+                                        <span data-feather="file"></span>
+                                        Failed Orders
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="Categories.aspx">
+                                        <span class="fal fa-grip-horizontal"></span>
+                                        Category 
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="Products.aspx">
+                                        <span data-feather="shopping-cart"></span>
+                                        Products
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="Promocodes.aspx">
+                                        <span class="fal fa-tag"></span>
+                                        Promocodes
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="Cashbackcodes.aspx">
+                                        <span class="fal fa-money-bill-alt"></span>
+                                        Cashbackcodes
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="customers.aspx">
+                                        <span data-feather="users"></span>
+                                        Customers
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="Deliverycharges.aspx">
+                                        <span class="fal fa-truck"></span>
+                                        Delivery Charge
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="Messages.aspx">
+                                        <span class="fal fa-comment-alt-exclamation"></span>
+                                        Messages <span id="msg" runat="server" class="badge bg-danger">
+                                            <asp:Label ID="lblTotalMsgCount" runat="server" Text=""></asp:Label>
+                                        </span>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="Customisation.aspx">
+                                        <span class="fal fa-cogs"></span>
+                                        Customise
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="AnimationText.aspx">
+                                        <span class="fal fa-percentage"></span>
+                                        Discount Line
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="PaymentGateways.aspx">
+                                        <span class="fal fa-solid fa-indian-rupee-sign"></span>
+                                        Payment Gateway
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </nav>
+
+                    <main class="col-md-9 col-lg-10 ms-sm-auto px-md-4">
+                        <asp:Label ID="lblMsg" runat="server" Text=""></asp:Label>
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </main>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
